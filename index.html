@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça o dólar americano, acompanhe sua cotação e converta valores entre dólares e reais.">
+
+  <title>Dólar em Foco</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="logo" href="#inicio">
+        <span class="logo-symbol">$</span>
+        Dólar em Foco
+      </a>
+
+      <nav aria-label="Menu principal">
+        <a href="#cotacao">Cotação</a>
+        <a href="#conversor">Conversor</a>
+        <a href="#sobre">Sobre o dólar</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">ENTENDA A MOEDA. ACOMPANHE O MERCADO.</p>
+
+          <h1>
+            O mundo se move.<br>
+            O dólar também.
+          </h1>
+
+          <p>
+            Acompanhe a cotação do dólar americano, converta valores
+            e descubra como essa moeda está presente no seu dia a dia.
+          </p>
+
+          <a class="button button-primary" href="#conversor">
+            Converter agora
+          </a>
+
+          <a class="button button-secondary" href="#sobre">
+            Conhecer o dólar
+          </a>
+        </div>
+
+        <article class="quote-card" id="cotacao">
+          <div class="card-heading">
+            <span class="currency-icon" aria-hidden="true">US$</span>
+
+            <div>
+              <h2>Dólar americano</h2>
+              <p>USD / BRL · Cotação de referência</p>
+            </div>
+          </div>
+
+          <p class="quote-label">1 dólar em reais</p>
+          <p class="quote-value" id="cotacao-valor">—</p>
+
+          <p class="quote-change" id="cotacao-variacao">
+            Aguardando consulta à cotação
+          </p>
+
+          <dl class="quote-details">
+            <div>
+              <dt>Máxima informada</dt>
+              <dd id="cotacao-maxima">—</dd>
+            </div>
+
+            <div>
+              <dt>Mínima informada</dt>
+              <dd id="cotacao-minima">—</dd>
+            </div>
+          </dl>
+
+          <p
+            class="quote-status"
+            id="cotacao-status"
+            role="status"
+            aria-live="polite"
+          >
+            A consulta será ativada com o JavaScript.
+          </p>
+
+          <button
+            class="button button-outline"
+            id="atualizar-cotacao"
+            type="button"
+            disabled
+          >
+            Atualizar cotação
+          </button>
+
+          <p class="small-text">
+            Fonte prevista: AwesomeAPI. Valores de referência,
+            sem impostos ou tarifas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="highlights" aria-label="Características do dólar">
+      <div class="container highlights-grid">
+        <article>
+          <span aria-hidden="true">01</span>
+          <h2>Uma moeda global</h2>
+          <p>
+            Presente em transações comerciais e financeiras internacionais.
+          </p>
+        </article>
+
+        <article>
+          <span aria-hidden="true">02</span>
+          <h2>Impacto no cotidiano</h2>
+          <p>
+            Influência no custo de viagens, importações
+            e serviços internacionais.
+          </p>
+        </article>
+
+        <article>
+          <span aria-hidden="true">03</span>
+          <h2>Informação acessível</h2>
+          <p>
+            Entenda a cotação e faça conversões em um só lugar.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Conversor -->
+    <section class="section converter-section" id="conversor">
+      <div class="container converter-layout">
+        <div class="section-intro">
+          <p class="eyebrow">DO VALOR À PRÁTICA</p>
+
+          <h2>Faça as contas sem complicação.</h2>
+
+          <p>
+            Informe um valor e escolha o sentido da conversão
+            para descobrir seu equivalente na outra moeda.
+          </p>
+        </div>
+
+        <form class="converter-card" id="conversor-form">
+          <label for="valor">Valor para converter</label>
+
+          <input
+            id="valor"
+            name="valor"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="Ex.: 100"
+            inputmode="decimal"
+            required
+          >
+
+          <label for="moedas">Sentido da conversão</label>
+
+          <select id="moedas" name="moedas">
+            <option value="USD-BRL">
+              Dólar (USD) → Real (BRL)
+            </option>
+
+            <option value="BRL-USD">
+              Real (BRL) → Dólar (USD)
+            </option>
+          </select>
+
+          <button
+            class="button button-primary"
+            id="converter-botao"
+            type="submit"
+            disabled
+          >
+            Converter valor
+          </button>
+
+          <div
+            class="conversion-result"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <p>Resultado da conversão</p>
+
+            <output id="resultado" for="valor moedas">—</output>
+
+            <p class="small-text" id="conversao-detalhe">
+              Aguardando cotação para calcular.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section about-section" id="sobre">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">ALÉM DA COTAÇÃO</p>
+
+          <h2>Por que acompanhar o dólar?</h2>
+
+          <p>
+            Uma mudança no câmbio pode chegar até você
+            de diferentes formas.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">01 /</span>
+
+            <h3>O que é o dólar?</h3>
+
+            <p>
+              O dólar americano é a moeda dos Estados Unidos.
+              Seu código internacional é USD, e ele é utilizado
+              em muitas negociações entre países.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">02 /</span>
+
+            <h3>Por que o preço muda?</h3>
+
+            <p>
+              A cotação varia conforme a oferta e a procura pela moeda.
+              Juros, decisões econômicas e expectativas do mercado
+              também influenciam o câmbio.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">03 /</span>
+
+            <h3>Como isso afeta você?</h3>
+
+            <p>
+              O dólar pode influenciar despesas com viagens,
+              compras internacionais e produtos importados,
+              além de custos de empresas que negociam no exterior.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="duvidas">
+      <div class="container faq-layout">
+        <div class="section-intro">
+          <p class="eyebrow">PARA ENTENDER MELHOR</p>
+
+          <h2>Dúvidas frequentes</h2>
+
+          <p>
+            Respostas simples para os termos que aparecem
+            quando o assunto é câmbio.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>
+              Qual a diferença entre dólar comercial e turismo?
+            </summary>
+
+            <p>
+              O dólar comercial é uma referência para operações
+              de comércio e finanças. Na compra de moeda para viagens,
+              o preço oferecido pode incluir margens, custos e tributos,
+              por isso o valor final costuma ser diferente.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              O conversor mostra quanto vou pagar em uma compra?
+            </summary>
+
+            <p>
+              Ele mostra uma estimativa com base na cotação disponível.
+              Bancos, cartões e casas de câmbio podem aplicar taxas,
+              impostos e cotações próprias.
+            </p>
+          </details>
+
+          <details>
+            <summary>O que significa USD/BRL?</summary>
+
+            <p>
+              USD é o código do dólar americano e BRL é o código
+              do real brasileiro. O par USD/BRL representa o valor
+              de um dólar expresso em reais.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Por que a cotação pode não estar disponível?
+            </summary>
+
+            <p>
+              A consulta depende de conexão e do serviço
+              que fornece os dados. Se ocorrer uma falha,
+              será necessário tentar novamente.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <noscript>
+      <p class="container">
+        Ative o JavaScript para utilizar os recursos de cotação
+        e conversão quando estiverem implementados.
+      </p>
+    </noscript>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="logo" href="#inicio">$ Dólar em Foco</a>
+
+      <p>
+        Projeto acadêmico · HTML, CSS, JavaScript, Node.js e Express.
+      </p>
+
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
